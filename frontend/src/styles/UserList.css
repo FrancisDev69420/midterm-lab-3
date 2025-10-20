@@ -1,0 +1,110 @@
+.user-list-container {
+  background: white;
+  padding: 2rem;
+  border: 1px solid #000;
+}
+
+.user-list-container h2 {
+  color: #000;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.table-container {
+  overflow-x: auto;
+  border: 1px solid #000;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  min-width: 600px;
+}
+
+.user-table th,
+.user-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+.user-table th {
+  background-color: #000;
+  color: white;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.user-table tbody tr:hover {
+  background-color: #f8f8f8;
+}
+
+.user-table tbody tr:nth-child(even) {
+  background-color: white;
+}
+
+.user-table tbody tr:nth-child(even):hover {
+  background-color: #f8f8f8;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  min-width: auto;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.no-users {
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border: 1px solid #000;
+}
+
+.no-users h3 {
+  color: #000;
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+}
+
+.no-users p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .user-list-container {
+    padding: 1rem;
+  }
+  
+  .user-table th,
+  .user-table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .btn-sm {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
