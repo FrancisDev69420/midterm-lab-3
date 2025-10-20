@@ -1,0 +1,9 @@
+*.xml
+*.json
+*.pb
+*.pub
+*.settings
+*.lock
+*.key
+android/
+midterm-lab-3/
