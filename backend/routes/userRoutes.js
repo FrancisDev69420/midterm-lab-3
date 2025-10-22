@@ -12,7 +12,7 @@ const transformUser = (user) => ({
 router.get('/', async (req, res) => {
   try {
     const users = await User.find();
-    res.status(200).json(transformUser);
+    res.status(200).json(users.map(transformUser));
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

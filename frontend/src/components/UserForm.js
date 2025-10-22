@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';  
 import '../styles/UserForm.css';
 
 const UserForm = ({ onSubmit, user = null, onCancel }) => {
@@ -8,6 +8,16 @@ const UserForm = ({ onSubmit, user = null, onCancel }) => {
     age: user ? user.age : '',
     phone: user ? user.phone : ''
   });
+
+  // this useEffect to update formData when user prop changes
+  useEffect(() => {
+    setFormData({
+      name: user ? user.name : '',
+      email: user ? user.email : '',
+      age: user ? user.age : '',
+      phone: user ? user.phone : ''
+    });
+  }, [user]);  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
