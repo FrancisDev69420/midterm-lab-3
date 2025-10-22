@@ -2,11 +2,17 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 
+const transformUser = (user) => ({
+  id: user._id.toString(),
+  ...user.toObject(),
+  _id: undefined,
+})
+
 // GET route to retrieve all users
 router.get('/', async (req, res) => {
   try {
     const users = await User.find();
-    res.status(200).json(users);
+    res.status(200).json(transformUser);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -17,7 +23,7 @@ router.get('/:id', async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     if (!user) return res.status(404).json({ error: 'User not found' });
-    res.status(200).json(user);
+    res.status(200).json(transformUser(user));
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -28,7 +34,7 @@ router.put('/:id', async (req, res) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!updatedUser) return res.status(404).json({ error: 'User not found' });
-    res.status(200).json(updatedUser);
+    res.status(200).json(transformUser(updatedUser));
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
@@ -50,7 +56,7 @@ router.post('/', async (req, res) => {
   try {
     const newUser = new User(req.body);
     const savedUser = await newUser.save();
-    res.status(201).json(savedUser);
+    res.status(201).json(transformUser(savedUser));
   } catch (err) {
     res.status(400).json({ error: err.message });
   }

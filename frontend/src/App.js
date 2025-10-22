@@ -1,11 +1,11 @@
 import React from 'react';
-import UserManager from './components/UserManager';
+import UserManagerWithAPI from './components/UserManagerWithAPI';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <UserManager />
+      <UserManagerWithAPI />
     </div>
   );
 }
